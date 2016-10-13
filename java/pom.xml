@@ -33,7 +33,7 @@
     </license>
   </licenses>
   <properties>
-    <appengine.target.version>[1.9.15,2.0)</appengine.target.version>
+    <appengine.target.version>1.8.4</appengine.target.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <github.global.server>github</github.global.server>
@@ -114,6 +114,16 @@
       </resource>
     </resources>
   </build>
+  <repositories>
+    <repository>
+      <id>gcs-lib</id>
+      <url>file://${project.basedir}/gcs-lib</url>
+    </repository>
+    <repository>
+      <id>pipeline-lib</id>
+      <url>file://${project.basedir}/pipeline-lib</url>
+    </repository>
+  </repositories>
   <dependencies>
     <!-- Compile/Runtime Dependencies -->
     <dependency>
@@ -134,9 +144,9 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>com.google.appengine.tools</groupId>
-      <artifactId>appengine-gcs-client</artifactId>
-      <version>[0.4.3,1.0)</version>
+      <groupId>appscale-gcs-sdk</groupId>
+      <artifactId>appscale-gcs-client</artifactId>
+      <version>0.6</version>
       <exclusions>
         <exclusion>
           <groupId>com.google.guava</groupId>
@@ -145,9 +155,9 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>com.google.appengine.tools</groupId>
-      <artifactId>appengine-pipeline</artifactId>
-      <version>[0.2.11,1.0)</version>
+      <groupId>appscale-pipeline-sdk</groupId>
+      <artifactId>appscale-pipeline</artifactId>
+      <version>0.2.13</version>
       <exclusions>
         <exclusion>
           <groupId>com.google.guava</groupId>
@@ -175,7 +185,7 @@
       <artifactId>guava</artifactId>
       <!-- version number of release candidates come before the ##.0 in maven, use 
         .99 to get latest release within the specified major version -->
-      <version>[15.0,20.99]</version>
+      <version>18.0</version>
     </dependency>
     <dependency>
       <groupId>joda-time</groupId>
@@ -251,6 +261,11 @@
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
       <version>[2.0,2.99]</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.apis</groupId>
+      <artifactId>google-api-services-storage</artifactId>
+      <version>v1-rev86-1.22.0</version>
     </dependency>
     <!-- Test Dependencies -->
     <dependency>
